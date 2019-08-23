@@ -16,10 +16,10 @@ In general, DB represents a data from system which is used for communication bet
 * <strong>Rates</strong> includes the rates for different types of calls; 
 * <strong>Call_logs</strong> 
 * <strong>Call_Forwarding</strong> contains an information about call forwarding from one number to another and can be represented in a form like this:
-[Image](https://github.com/andreevnapolly/test_task/blob/master/Connections.sql)
+[Image](https://github.com/andreevnapolly/test_task/blob/master/Connections.png)
 
 DB structure can be presented in UML data structure diagram:
-[Image](https://github.com/andreevnapolly/test_task/blob/master/UML_diagram.sql)
+[Image](https://github.com/andreevnapolly/test_task/blob/master/UML_diagram.png)
 
 
 <em>In additional, most of the parametrs (columns) can be NULL, what makes all connections between entities not strong. For examle, it's possible to create the row in the Numbers table with UID, which doesn't exist in the Accounts table. This situation is the same for all other entitie's relationships.     
