@@ -28,10 +28,10 @@ Adding constraines such as strong connections by PK and FK, and rules for not NU
 
 All relationships which are shown on the diagram have next explanations:
 1. One account has 0 or more numbers, while the one number can be connected to the 0 or more accounts;
-2. One mumber can be used in 0 or more From-To pairs, while each From-To pairs can use 0 or more times phone numbers from Numbers table;
+2. One number can be used in 0 or more From-To pairs, while each From-To pairs can use 0 or more times phone numbers from Numbers table;
 3. Call logs can use 0 or more times phone numbers from Number table, while one phone number from Number table can be used 0 or more times in Call logs;
-4. 
-
+4. One Call-logs row can include 0 or 1 Account, while one Account can be used in 0 or more Call-logs notes;
+5. One Call-logs row can include 0 or 1 Rate, while one Rate can be used in 0 or more Call-logs notes.
 
 
 
