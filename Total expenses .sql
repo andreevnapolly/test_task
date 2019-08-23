@@ -1,7 +1,7 @@
 /*Definig the rate's velues*/
 SELECT
-	@First_Rate := (Select Money From Rates Where ID = 1),
-	@Second_Rate := (Select Money From Rates Where ID = 2),
+	@First_Rate:= (Select Money From Rates Where ID = 1),
+	@Second_Rate:= (Select Money From Rates Where ID = 2),
 	@Third_Rate:= (Select Money From Rates Where ID = 3);
      
 /*Counting total amount of minutes for the first rate*/
@@ -28,4 +28,4 @@ SELECT
 
 
 /*Counting the final resoult*/
-SELECT @Resoult := @First_Rate * @Total_min_First_rate + @Second_Rate * @Total_min_Second_rate + @Third_Rate * @Total_min_Third_rate AS Resoult 
+SELECT @Resoult:= @First_Rate * @Total_min_First_rate + @Second_Rate * @Total_min_Second_rate + @Third_Rate * @Total_min_Third_rate AS Resoult 
