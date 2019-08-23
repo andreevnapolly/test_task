@@ -1,4 +1,4 @@
-/*Definig the rate's velues*/
+/*Defining the rate's velues*/
 SELECT
 	@First_Rate:= (Select Money From Rates Where ID = 1),
 	@Second_Rate:= (Select Money From Rates Where ID = 2),
@@ -27,5 +27,5 @@ SELECT
 		(Call_logs.To NOT IN (SELECT Phone_Number from Numbers));
 
 
-/*Counting the final resoult*/
-SELECT @Resoult:= @First_Rate * @Total_min_First_rate + @Second_Rate * @Total_min_Second_rate + @Third_Rate * @Total_min_Third_rate AS Resoult 
+/*Counting the final result*/
+SELECT @Result:= @First_Rate * @Total_min_First_rate + @Second_Rate * @Total_min_Second_rate + @Third_Rate * @Total_min_Third_rate AS Result 
