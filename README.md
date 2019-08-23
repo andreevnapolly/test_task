@@ -11,11 +11,11 @@ In general, DB represents a data from system which is used for communication bet
 <em>There are no defined Primary and Foreing Keys, so the shown connections between entities are related to the data analysis.</em>
 
 ### DB containes next tables:   
-* <strong>Accounts</strong> containes an information about system's users: id and name. In this table UID can't be used as a PK because some UIDs are connected with 2 names, so UIT can not define the connection UID<->Name uniqly. 
+* <strong>Accounts</strong> contains an information about system's users: id and name. In this table UID can't be used as a PK because some UIDs are connected with 2 names, so UIT can not define the connection UID<->Name uniquely. 
 * <strong>Numbers</strong> represents the information about user's phone numbers. In this table UID also can't be a PK, because some UIDs have 2 numbers connected;
 * <strong>Rates</strong> includes the rates for different types of calls; 
-* <strong>Call_logs</strong> containes the information about each call through the system;
-* <strong>Call_Forwarding</strong> contains an information about call forwarding from one number to another and can be represented in a form like this, which shows the full lines of numbers connections.:
+* <strong>Call_logs</strong> contains the information about each call through the system;
+* <strong>Call_Forwarding</strong> contains an information about call forwarding from one number to another and can be represented in a form like this, which shows the full lines of numbers connections:
 ![Image](https://github.com/andreevnapolly/test_task/blob/master/Connections.png) 
 
 
@@ -23,8 +23,8 @@ DB structure can be presented in UML data structure diagram:
 ![Image](https://github.com/andreevnapolly/test_task/blob/master/UML_diagram.png)
 
 
-<em>In additional, most of the parametrs (columns) can be NULL, what makes all connections between entities not strong. For examle, it's possible to create the row in the Numbers table with UID, which doesn't exist in the Accounts table. This situation is the same for all other entitie's relationships.     
-Adding constraines such as strong connections by PK and FK, and rules for not NULL cells could structurise and control all DB data.</em>
+<em>In additional, most of the parameters (columns) can be NULL, what makes all connections between entities not strong. For example, it's possible to create the row in the Numbers table with UID, which doesn't exist in the Accounts table. This situation is the same for all other entities's relationships.     
+Adding constraints such as strong connections by PK and FK, and rules for not NULL cells could structure and control all DB data.</em>
 
 All relationships which are shown on the diagram have next explanations:
 1. One account has 0 or more numbers, while the one number can be connected to the 0 or more accounts;
@@ -38,7 +38,7 @@ All relationships which are shown on the diagram have next explanations:
 
 ## SQL requests 
 ### Total expenses
-Total expences depend on 2 things: rate and how many minutes was used for each rate.
-So my solution is based on counting time for each of 3 availiable rate's option. The full SQL script is [here](https://github.com/andreevnapolly/test_task/blob/master/Total_expenses.sql) 
+Total expenses depend on 2 things: rate and how many minutes was used for each rate.
+So my solution is based on counting time for each of 3 available rate's option. The full SQL script is [here](https://github.com/andreevnapolly/test_task/blob/master/Total_expenses.sql) 
 
-The final resault is 3.2
+The final result is 3.2
