@@ -1,33 +1,31 @@
-/*Берем из таблицы Rate значения ставок*/
+/*Definig the rate's velues*/
 SELECT
-	 @First_Rate := (Select Money From Rates Where ID = 1),
-     @Second_Rate := (Select Money From Rates Where ID = 2),
-     @Third_Rate:= (Select Money From Rates Where ID = 3);
+	@First_Rate := (Select Money From Rates Where ID = 1),
+	@Second_Rate := (Select Money From Rates Where ID = 2),
+	@Third_Rate:= (Select Money From Rates Where ID = 3);
      
-/*Считаем количество минут по первой ставке*/
+/*Counting total amount of minutes for the first rate*/
 SELECT
-   @Total_min_First_rate:= (SUM( (MINUTE (TIMEDIFF (Timestamp_end, Timestamp_start)) + IF (SECOND(TIMEDIFF (Timestamp_end, Timestamp_start)) > 0, 1, 0)) ))  
-FROM Call_logs 
-	WHERE (Call_dir = 'in');
+  	@Total_min_First_rate:= (SUM( (MINUTE (TIMEDIFF (Timestamp_end, Timestamp_start)) + IF (SECOND(TIMEDIFF (Timestamp_end, Timestamp_start)) > 0, 1, 0)) ))  
+	FROM Call_logs 
+		WHERE (Call_dir = 'in');
 
-/*Считаем количество минут по второй ставке*/
+/*Counting total amount of minutes for the second rate*/
 SELECT
-   @Total_min_Second_rate:= (SUM( (MINUTE (TIMEDIFF (Timestamp_end, Timestamp_start)) + IF (SECOND(TIMEDIFF (Timestamp_end, Timestamp_start)) > 0, 1, 0)) ))  
-FROM Call_logs 
-	WHERE (Call_dir = 'out') 
-	AND
-	(Call_logs.To IN (SELECT Phone_Number from Numbers));
+   	@Total_min_Second_rate:= (SUM( (MINUTE (TIMEDIFF (Timestamp_end, Timestamp_start)) + IF (SECOND(TIMEDIFF (Timestamp_end, Timestamp_start)) > 0, 1, 0)) ))  
+	FROM Call_logs 
+		WHERE (Call_dir = 'out') 
+		AND
+		(Call_logs.To IN (SELECT Phone_Number from Numbers));
 
-/*Считаем количество минут по третьей ставке*/
+/*Counting total amount of minutes for the third rate*/
 SELECT
-   @Total_min_Third_rate:= (SUM( (MINUTE (TIMEDIFF (Timestamp_end, Timestamp_start)) + IF (SECOND(TIMEDIFF (Timestamp_end, Timestamp_start)) > 0, 1, 0)) ))  
-FROM Call_logs 
-	WHERE (Call_dir = 'out') 
-	AND
-	(Call_logs.To NOT IN (SELECT Phone_Number from Numbers));
-
-/*SELECT @First_Rate, @Second_Rate, @Third_Rate, @Total_min_First_rate, @Total_min_Second_rate, @Total_min_Third_rate;*/
+   	@Total_min_Third_rate:= (SUM( (MINUTE (TIMEDIFF (Timestamp_end, Timestamp_start)) + IF (SECOND(TIMEDIFF (Timestamp_end, Timestamp_start)) > 0, 1, 0)) ))  
+	FROM Call_logs 
+		WHERE (Call_dir = 'out') 
+		AND
+		(Call_logs.To NOT IN (SELECT Phone_Number from Numbers));
 
 
-/*Считаем итоговое значение*/
+/*Counting the final resoult*/
 SELECT @Resoult := @First_Rate * @Total_min_First_rate + @Second_Rate * @Total_min_Second_rate + @Third_Rate * @Total_min_Third_rate AS Resoult 
