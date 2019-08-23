@@ -14,7 +14,7 @@ In general, DB represents a data from system which is used for communication bet
 * <strong>Accounts</strong> containes an information about system's users: id and name. In this table UID can't be used as a PK because some UIDs are connected with 2 names, so UIT can not define the connection UID<->Name uniqly. 
 * <strong>Numbers</strong> represents the information about user's phone numbers. In this table UID also can't be a PK, because some UIDs have 2 numbers connected;
 * <strong>Rates</strong> includes the rates for different types of calls; 
-* <strong>Call_logs</strong> 
+* <strong>Call_logs</strong> containes the information about each call through the system;
 * <strong>Call_Forwarding</strong> contains an information about call forwarding from one number to another and can be represented in a form like this, which shows the full lines of numbers connections.:
 ![Image](https://github.com/andreevnapolly/test_task/blob/master/Connections.png) 
 
