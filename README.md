@@ -18,4 +18,4 @@ In Numbers table UID also can't be a PK, because some UIDs have 2 numbers connec
 ## Task 3. SQL requests 
 ### Total expenses
 Total expences depend on 2 things: rate and how many minutes was used for each rate.
-So my solution is based on counting time for each of 3 availiable rate's option. The full SQL script is represented here: ![Image alt](https://github.com/andreevnapolly/test-task/blob/master/Total_expenses.sql)  
+So my solution is based on counting time for each of 3 availiable rate's option. The full SQL script is represented here: ![Image alt](https://github.com/andreevnapolly/test_task/blob/master/Total_expenses.sql)  
