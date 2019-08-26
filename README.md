@@ -41,4 +41,19 @@ All relationships which are shown on the diagram have next explanations:
 Total expenses depend on 2 things: rate and how many minutes was used for each rate.
 So my solution is based on counting time for each of 3 available rate's option. The full SQL script is [here](https://github.com/andreevnapolly/test_task/blob/master/Total_expenses.sql) 
 
-The final result is 3.2
+The final result is 3.2.    
+
+### Top 10: Most active users
+The solution is based on idea that user's activity is counting on his initial calls. That means that all forwarding calls don't influence on user's activity. Than more user makes initial calls that more he is an active user.     
+
+One more addition - the activity is counting only for people who have the personal UID in the system.    
+
+The main task is to exclude all forwarding calls. The call can be forwarding if:
+1. The pair of numbers 'From-To' is encounting in the table Call_forwarding; 
+2. This call has a potential initial call. 
+
+When all initial users calls are difined, it's easy to find users with the biggest amount of calls. The user for each call is an Account which phone number is defined as 'From' nubmer in the Call log.
+
+
+The Final result is 
+![Image](https://github.com/andreevnapolly/test_task/blob/master/Top_10_Most_Active_Users.png)
