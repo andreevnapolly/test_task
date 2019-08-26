@@ -54,6 +54,21 @@ The main task is to exclude all forwarding calls. The call can be forwarding if:
 
 When all initial users calls are difined, it's easy to find users with the biggest amount of calls. The user for each call is an Account which phone number is defined as 'From' nubmer in the Call log.
 
+The full SQL script is [here](https://github.com/andreevnapolly/test_task/blob/master/Top_10_Most_Active_Users.sql) 
 
-The Final result is 
-![Image](https://github.com/andreevnapolly/test_task/blob/master/Top_10_Most_Active_Users.png)
+The Final result is       
+![Image](https://github.com/andreevnapolly/test_task/blob/master/Top_10_Most_Active_Users.png)    
+
+
+### Top 10: Users with highest charges, and daily distribution for each of them
+This task is done partly and shows Top 10: Users with highest charges.
+
+The solution is based on the first task and counts for each user:
+1. Total amount of minutes for each rate;
+2. Total charge for each rate;
+3. Total user charge.
+
+The full SQL script is [here](https://github.com/andreevnapolly/test_task/blob/master/Top_10_Users_with_highest_charges.sql)
+
+The Final result is       
+![Image](https://github.com/andreevnapolly/test_task/blob/master/Top_10_Users_with_highest_charges.png) 
