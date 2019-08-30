@@ -5,17 +5,17 @@ INNER JOIN Numbers
 ON Call_logs.From = Numbers.Phone_Number
 
 
-WHERE (Call_logs.Call_id NOT IN (SELECT Numbers.Call_id
-								FROM Call_logs 
+WHERE (Call_logs.Call_id NOT IN (SELECT B.Call_id
+								FROM Call_logs AS A
 
-								LEFT JOIN Call_logs
-								ON Call_logs.To = Numbers.From
+								LEFT JOIN Call_logs AS B
+								ON A.To = B.From
 
 								INNER JOIN Call_forwarding AS C 
-								on Numbers.from = Call_forwarding.From
+								on B.from = C.From
 
-								WHERE (Numbers.To = Call_forwarding.To) and (Numbers.From = Call_forwarding.From) AND (Numbers.Timestamp_start > Call_logs.Timestamp_end)
-								GROUP BY Numbers.Call_id))
+								WHERE (B.To = C.To) and (B.From = C.From) AND (B.Timestamp_start > A.Timestamp_end)
+								GROUP BY B.Call_id))
 
 GROUP BY Numbers.UID
 ORDER BY Calls_Amount DESC
